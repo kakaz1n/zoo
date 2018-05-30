@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "498368104232",
+    "firebase_url": "https://zoologico-d116b.firebaseio.com",
+    "project_id": "zoologico-d116b",
+    "storage_bucket": "zoologico-d116b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498368104232:android:c6e99602c9e4abb1",
+        "android_client_info": {
+          "package_name": "com.login.zoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498368104232-u8t4qa332n3qpv8f7kg5rd8d9kuf5n98.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.login.zoo",
+            "certificate_hash": "e5c8195493c57db9c29e2930b42b4e91e947d5f3"
+          }
+        },
+        {
+          "client_id": "498368104232-grj7ivgilh09jfvstu5g93j2hju6ipnj.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "498368104232-grj7ivgilh09jfvstu5g93j2hju6ipnj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSTNoUH_BM9x3R14SqQiTYVNLazxcaEGU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498368104232-grj7ivgilh09jfvstu5g93j2hju6ipnj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "498368104232-5sauv2gjugqttcpa8m6jag1t85gad3co.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.login.zoo"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

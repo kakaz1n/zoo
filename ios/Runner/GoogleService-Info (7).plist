@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>498368104232-5sauv2gjugqttcpa8m6jag1t85gad3co.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.498368104232-5sauv2gjugqttcpa8m6jag1t85gad3co</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAWgWQouCrQVJGs-PKehLF4zxX8KiA2gvs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>498368104232</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.login.zoo</string>
+	<key>PROJECT_ID</key>
+	<string>zoologico-d116b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zoologico-d116b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:498368104232:ios:c6e99602c9e4abb1</string>
+	<key>DATABASE_URL</key>
+	<string>https://zoologico-d116b.firebaseio.com</string>
+</dict>
+</plist>

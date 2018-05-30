@@ -5,7 +5,6 @@ import 'Home.dart' as Home;
 import 'Lista.dart' as Lista;
 import 'Eventos.dart' as Eventos;
 import 'Ajustes.dart' as Ajustes;
-import 'qrscan.dart' as qrScan;
 
 void main(){
   runApp(new MaterialApp(
@@ -92,10 +91,7 @@ class MyTabsState extends State<MyTabs> with SingleTickerProviderStateMixin{
           new Tab(icon: new Icon(Icons.settings)),       
         ]
         )
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: ,
-      ),
+      )
     );
   }
 }
