@@ -4,6 +4,7 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'dart:io';
 import 'dart:async';
+import 'Animal.dart' as Animal;
 /*
 final FirebaseApp app = await FirebaseApp.configure(
  options: new FirebaseOptions(
@@ -60,14 +61,13 @@ class HomeState extends State<Home>{
   List<Item> items = List();
   Item item;
   DatabaseReference itemRef;
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void initState()
   {
     super.initState();
-    item = Item("",""); //colocando valores nulos primeoro
+    item = Item("","",""); //colocando valores nulos primeoro
     final FirebaseDatabase database = FirebaseDatabase(app: widget.app);
     itemRef = database.reference().child("Animais"); // nome da tabela
     itemRef.onChildAdded.listen(_onEntryAdded); // quando entrar algum item
@@ -143,6 +143,7 @@ class HomeState extends State<Home>{
         Flexible( // transformar em funcao
           child: FirebaseAnimatedList(
             query: itemRef,
+            duration: new Duration(milliseconds: 500),
             //sort: item.sort(),//(a,b) => a.value.toLowerCase().compareTo(b.value.toLowerCase()),
             sort: item.Sort(items),
             itemBuilder:(BuildContext context, DataSnapshot snapshot,
@@ -151,6 +152,15 @@ class HomeState extends State<Home>{
                 leading: Icon(Icons.donut_large),
                 title: Text(items[index].nome_popular),
                 subtitle: Text(items[index].desc),
+                onTap: () {
+                  print(items[index].toJson());
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                      builder: (context) => new Animal.Animal(animal: items[index]),
+                    )
+                  );
+                }
               );
             },
           )
@@ -159,19 +169,22 @@ class HomeState extends State<Home>{
       ),
     );
   }
+  
 }
 
-class Item implements Icons{
-  String key;
-  String nome_popular;
-  String desc;
+class Item{
+  final String key;
+  final String nome_popular;
+  final String desc;
+  final String imagem;
   //colocar o outros valores
-  Item(this.nome_popular, this.desc);
+  Item(this.nome_popular, this.desc, this.imagem);
 
   Item.fromSnapshot(DataSnapshot snapshot)
     :key = snapshot.key,
     nome_popular = snapshot.value["nome_popular"],
-    desc = snapshot.value["desc"];
+    desc = snapshot.value["desc"],
+    imagem = snapshot.value["imagem"];
   Sort(List<Item> items) => items.sort((a,b) {
 return a.nome_popular.toLowerCase().compareTo(b.nome_popular.toLowerCase());
   });
@@ -179,6 +192,7 @@ return a.nome_popular.toLowerCase().compareTo(b.nome_popular.toLowerCase());
     return{
       "nome_popular": nome_popular,
       "desc": desc,
+      "imagem": imagem,
     };
   }
 }
