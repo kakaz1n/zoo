@@ -29,17 +29,21 @@ class Lista extends StatelessWidget{
 
  Future<void> main() async {
   final FirebaseApp app = await FirebaseApp.configure(
+    FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
     name: 'zoologico',
     options: Platform.isIOS
         ? const FirebaseOptions(
             googleAppID: '1:498368104232:ios:c6e99602c9e4abb1',
             gcmSenderID: '498368104232',
             databaseURL: 'https://zoologico-d116b.firebaseio.com',
+            async: false,
           )
         : const FirebaseOptions(
             googleAppID: '1:297855924061:android:669871c998cc21bd',
             apiKey: 'AIzaSyBSTNoUH_BM9x3R14SqQiTYVNLazxcaEGU',
             databaseURL: 'https://zoologico-d116b.firebaseio.com',
+            async: false,
           ),
   );
   runApp(new MaterialApp(
@@ -61,15 +65,16 @@ class HomeState extends State<Home>{
   List<Item> items = List();
   Item item;
   DatabaseReference itemRef;
+  itemRef.setPersistenceEnabled(true);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   @override
   void initState()
   {
     super.initState();
-    item = Item("","",""); //colocando valores nulos primeoro
+    item = Item("","","",""); //colocando valores nulos primeoro
     final FirebaseDatabase database = FirebaseDatabase(app: widget.app);
-    itemRef = database.reference().child("Animais"); // nome da tabela
+    itemRef = database.reference().child("Animais").keepSynced(true); // nome da tabela
+    
     itemRef.onChildAdded.listen(_onEntryAdded); // quando entrar algum item
     itemRef.onChildChanged.listen(_onEntryChanged);  //mudar algo
   }
@@ -153,7 +158,7 @@ class HomeState extends State<Home>{
                 title: Text(items[index].nome_popular),
                 subtitle: Text(items[index].desc),
                 onTap: () {
-                  print(items[index].toJson());
+                  //print(items[index].toJson());
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
@@ -178,7 +183,7 @@ class Item{
   final String desc;
   final String imagem;
   //colocar o outros valores
-  Item(this.nome_popular, this.desc, this.imagem);
+  Item(this.key,this.nome_popular, this.desc, this.imagem);
 
   Item.fromSnapshot(DataSnapshot snapshot)
     :key = snapshot.key,
